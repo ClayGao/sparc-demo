@@ -1,0 +1,81 @@
+---
+title: "Tailwind CSS最佳實踐"
+description: "提升你的Tailwind CSS開發效率與代碼品質的技巧與策略"
+date: "2025-03-20"
+tags: ["CSS", "Tailwind", "前端設計"]
+published: true
+---
+
+# Tailwind CSS最佳實踐
+
+Tailwind CSS是一個實用優先的CSS框架，它通過提供低級別的功能類來幫助你快速構建現代化的網站。本文將分享一些使用Tailwind CSS的最佳實踐，幫助你提高開發效率和代碼質量。
+
+## 組織和重用
+
+使用@apply指令組合常用的功能類:
+
+```css
+@layer components {
+  .btn-primary {
+    @apply px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors;
+  }
+}
+```
+
+## 響應式設計
+
+Tailwind提供了基於斷點的響應式前綴:
+
+```html
+<div class="text-sm md:text-base lg:text-lg">
+  This text changes size at different breakpoints
+</div>
+```
+
+## 主題化和定制
+
+在tailwind.config.js中擴展主題:
+
+```js
+module.exports = {
+  theme: {
+    extend: {
+      colors: {
+        'brand-blue': '#1992d4',
+      },
+      spacing: {
+        '72': '18rem',
+      }
+    }
+  }
+}
+```
+
+## Dark Mode實現
+
+利用Tailwind的dark模式功能:
+
+```html
+<div class="bg-white dark:bg-gray-800 text-black dark:text-white">
+  Automatically adapts to dark mode
+</div>
+```
+
+## 性能優化
+
+使用purgeCSS裁剪未使用的樣式:
+
+```js
+// tailwind.config.js
+module.exports = {
+  purge: [
+    './src/**/*.{js,jsx,ts,tsx}',
+    './public/index.html',
+  ],
+  // ...
+}
+```
+
+## 結論
+
+Tailwind CSS提供了一種高效、靈活的方式來構建現代化的用戶界面。通過遵循這些最佳實踐，你可以充分發揮Tailwind的潛力，同時保持代碼的組織性和可維護性。

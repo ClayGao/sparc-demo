@@ -1,0 +1,47 @@
+---
+title: "探索React Server Components"
+description: "深入了解React Server Components如何改變前端開發模式"
+date: "2025-04-15"
+tags: ["React", "Server Components", "效能優化"]
+published: true
+---
+
+# 探索React Server Components
+
+React Server Components是React的一個革命性功能，它改變了我們思考和構建UI的方式。本文將深入探討React Server Components的工作原理、優勢以及如何在實際項目中使用它。
+
+## 什麼是React Server Components?
+
+React Server Components允許我們將React組件在服務器上渲染，並將結果發送給客戶端，而不需要發送JavaScript代碼。這意味著我們可以在服務器上執行數據獲取、訪問數據庫和文件系統等操作，而不需要在客戶端執行這些操作。
+
+## 優勢
+
+1. **減少JavaScript負載**: 服務器組件不會增加客戶端的JavaScript包大小
+2. **直接訪問服務器資源**: 可以直接訪問數據庫、文件系統等
+3. **改進初始加載性能**: 減少了客戶端需要解析和執行的JavaScript代碼量
+4. **自動代碼拆分**: 服務器組件自動實現了代碼拆分
+
+## 使用範例
+
+```tsx
+// 服務器組件
+async function DataFetcher() {
+  const data = await fetchData(); // 直接在服務器上獲取數據
+  return <div>{data.map(item => <div key={item.id}>{item.name}</div>)}</div>;
+}
+
+// 客戶端組件
+'use client';
+function InteractiveComponent() {
+  const [count, setCount] = useState(0);
+  return (
+    <button onClick={() => setCount(count + 1)}>
+      Clicked {count} times
+    </button>
+  );
+}
+```
+
+## 結論
+
+React Server Components代表了前端開發範式的轉變，它允許我們更有效地利用服務器和客戶端的優勢，構建更高效、更輕量的應用程序。

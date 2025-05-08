@@ -1,0 +1,53 @@
+---
+title: "Next.js 15入門指南"
+description: "了解Next.js 15的新特性與如何開始你的第一個專案"
+date: "2025-05-08"
+tags: ["Next.js", "React", "前端開發"]
+published: true
+---
+
+# Next.js 15入門指南
+
+Next.js 15是一個革命性的版本，帶來了許多令人興奮的新功能和改進。本文將帶你了解這些新特性，並指導你如何開始你的第一個Next.js 15專案。
+
+## 主要新特性
+
+1. **異步API**: params和searchParams現在是Promise，需要使用await解析
+2. **Turbopack穩定版**: 更快的開發體驗
+3. **React 19支持**: 支持React 19的新特性
+4. **改進的緩存機制**: 對渲染和緩存模型進行了優化
+
+## 安裝與設置
+
+使用以下命令創建一個新的Next.js 15專案:
+
+```bash
+npx create-next-app@latest my-nextjs-app
+```
+
+啟動開發服務器:
+
+```bash
+cd my-nextjs-app
+npm run dev
+```
+
+## 異步API使用範例
+
+```tsx
+// 之前
+export default function Page({ params, searchParams }) {
+  const { slug } = params;
+  return <h1>{slug}</h1>;
+}
+
+// 現在
+export default async function Page({ params, searchParams }) {
+  const { slug } = await params;
+  return <h1>{slug}</h1>;
+}
+```
+
+## 結論
+
+Next.js 15帶來了許多令人興奮的新功能，特別是異步API和改進的緩存機制，這使得構建高效能的網頁應用程式變得更加容易。
