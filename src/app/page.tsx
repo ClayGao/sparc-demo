@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 
 // 獲取最新三篇文章
 const getRecentArticles = () => {
